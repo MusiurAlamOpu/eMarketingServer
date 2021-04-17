@@ -26,7 +26,7 @@ client.connect((err) => {
 
   /////admins
   app.get("/addAdmin", (req, res) => {
-    bookingsCollection.find().toArray((err, items) => {
+    adminsCollection.find().toArray((err, items) => {
       res.send(items);
       console.log(items);
     });
@@ -35,7 +35,7 @@ client.connect((err) => {
   app.post("/addAdmin", (req, res) => {
     const admin = req.body;
     console.log("adding new Image", admin);
-    bookingsCollection.insertOne(admin).then((result) => {
+    adminsCollection.insertOne(admin).then((result) => {
       console.log("Inserted Count", result.insertedCount);
       res.send(result.insertedCount > 0);
     });
