@@ -21,11 +21,27 @@ const client = new MongoClient(uri, {
 client.connect((err) => {
   const serviceCollection = client.db("eMarketing").collection("Services");//
   const reviewsCollection = client.db("eMarketing").collection("reviews");
+  const bookingsCollection = client.db("eMarketing").collection("bookings");
 
 
+///bookings
+app.get("/addBookings", (req, res) => {
+  bookingsCollection.find().toArray((err, items) => {
+    res.send(items);
+    console.log(items);
+  });
+});
 
+app.post("/addBookings", (req, res) => {
+  const booking = req.body;
+  console.log("adding new Image", booking);
+  bookingsCollection.insertOne(booking).then((result) => {
+    console.log("Inserted Count", result.insertedCount);
+    res.send(result.insertedCount > 0);
+  });
+});
   
-
+  ///services
   app.get("/addService", (req, res) => {
     serviceCollection.find().toArray((err, items) => {
       res.send(items);
