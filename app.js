@@ -91,6 +91,20 @@ app.post("/addBookings", (req, res) => {
       res.send(result.insertedCount > 0);
     });
   });
+  //deleteing services
+  app.delete('/deleteService/:id', (req, res) => {
+    const id = ObjectID(req.params.id);//
+    console.log("delete:", id);
+    serviceCollection.findOneAndDelete({_id: id})
+    .then(documents => res.redirect(!!documents.value))
+  })
+  //deleting bookings
+  app.delete('/deleteBooking/:id', (req, res) => {
+    const id = ObjectID(req.params.id);//
+    console.log("delete:", id);
+    bookingsCollection.findOneAndDelete({_id: id})
+    .then(documents => res.redirect(!!documents.value))
+  })
 
   console.log("connected")
 //   client.close();
