@@ -1,15 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-// const fileUpload = require('express-fileupload');
 require("dotenv").config();
 const app = express();
-const port = process.env.PORT || 5055; //
+const port = process.env.PORT || 5055;
 const ObjectID = require("mongodb").ObjectID;
 app.use(cors());
 app.use(bodyParser.json());
-// app.use(express.static('services'));
-// app.use(fileUpload());
+
+app.get("/", (req, res) => {
+  res.send("Hi world!");
+});
 
 const MongoClient = require("mongodb").MongoClient;
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.su3lx.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -23,9 +24,7 @@ client.connect((err) => {
 
 
 
-  app.get("/", (req, res) => {
-    res.send("Hi world!");
-  });
+  
 
   app.get("/addService", (req, res) => {
     serviceCollection.find().toArray((err, items) => {
@@ -59,6 +58,8 @@ client.connect((err) => {
       res.send(result.insertedCount > 0);
     });
   });
+
+  console.log("connected")
 //   client.close();
 });
 
