@@ -92,9 +92,9 @@ app.post("/addBookings", (req, res) => {
     });
   });
   ///updating booking status
-  app.delete('/updateStatus/:id', (req, res) => {
+  app.patch('/updateStatus/:id', (req, res) => {
     const id = ObjectID(req.params.id);//
-    console.log("update:", id);
+    console.log("UPDATE: ", id);
     bookingsCollection.updateOne({_id: id}, {
       $set : {status: req.body.status}
     })
