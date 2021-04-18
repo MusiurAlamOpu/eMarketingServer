@@ -91,6 +91,18 @@ app.post("/addBookings", (req, res) => {
       res.send(result.insertedCount > 0);
     });
   });
+  ///updating booking status
+  app.delete('/updateStatus/:id', (req, res) => {
+    const id = ObjectID(req.params.id);//
+    console.log("update:", id);
+    bookingsCollection.updateOne({_id: id}, {
+      $set : {status: req.body.status}
+    })
+    .then(documents => {
+      res.redirect(!!documents.value);
+        console.log(documents);
+    })
+  })
   //deleteing services
   app.delete('/deleteService/:id', (req, res) => {
     const id = ObjectID(req.params.id);//
