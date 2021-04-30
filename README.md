@@ -1,4 +1,4 @@
-********\*\*\*********Assalamo Alaikum**********\*\*\***********
+**\*\*\*\***\*\*\***\*\*\*\***Assalamo Alaikum\***\*\*\*\*\***\*\*\*\***\*\*\*\*\***
 
 ---
 
@@ -23,8 +23,9 @@ This website is made with
 [heroku]
 [javascript]
 [MongoDB]
-[expressJs]
+[ExpressJs]
 [Stripe]
+[Material-UI]
 
 **features**
 Visitors can see the home page with full of demo card of various type of services, reviews and projects. From there one can click the Book button of Services Card and that will redirect to log in page in case not logged in. After authentication step visitor can checkout their selection and can book after payment method using Submit button which will confirm the order. Admins can add or remove the database information about specific Orders or Services item and can make admin someone else.
@@ -44,11 +45,11 @@ More Specifically
 
 ### -------Visit the site through the link
 
-    [https://emarketing-c2023.web.app/]
+    `https://emarketing-c2023.web.app/`
 
 ### -------My github client site repository link is
 
-    [https://github.com/Porgramming-Hero-web-course/complete-website-client-MusiurAlamOpu]
+    `https://github.com/MusiurAlamOpu/eMarketing`
 
 ### -------My github server site repository link is
 
